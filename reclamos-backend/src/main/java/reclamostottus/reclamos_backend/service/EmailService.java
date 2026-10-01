@@ -13,14 +13,11 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    // FORZAMOS EL CORREO A TU DIRECCIÓN DE PRUEBAS
-    private final String CORREO_DESTINO = "pruebasdecorreoupn@gmail.com";
-
     @Async
     public void enviarCorreoRegistro(Reclamo reclamo) {
         try {
             SimpleMailMessage mensaje = new SimpleMailMessage();
-            mensaje.setTo(CORREO_DESTINO);
+            mensaje.setTo(reclamo.getUsuario().getCorreo());
             mensaje.setSubject("Confirmación de Registro - Caso " + reclamo.getCodigoSeguimiento());
 
             String contenido = "¡Hola " + reclamo.getUsuario().getNombres() + "!\n\n"
@@ -43,10 +40,10 @@ public class EmailService {
     }
 
     @Async
-    public void enviarCorreoActualizacion(String codigoCaso, String detalleCambio) {
+    public void enviarCorreoActualizacion(String correo, String codigoCaso, String detalleCambio) {
         try {
             SimpleMailMessage mensaje = new SimpleMailMessage();
-            mensaje.setTo(CORREO_DESTINO);
+            mensaje.setTo(correo);
             mensaje.setSubject("ACTUALIZACION DE TU CASO - " + codigoCaso);
 
             String contenido = "Hola,\n\n"

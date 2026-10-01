@@ -65,7 +65,7 @@ class EmailServiceTest {
 
     @Test
     void enviarCorreoActualizacionEnviaElMensajeConElDetalleDelCambio() {
-        emailService.enviarCorreoActualizacion("REQ-2026-0001", "Tu estado cambió a En Proceso");
+        emailService.enviarCorreoActualizacion("example@gmail.com","REQ-2026-0001", "Tu estado cambió a En Proceso");
 
         ArgumentCaptor<SimpleMailMessage> captor = ArgumentCaptor.forClass(SimpleMailMessage.class);
         verify(mailSender, times(1)).send(captor.capture());
@@ -79,7 +79,7 @@ class EmailServiceTest {
     void enviarCorreoActualizacionNoLanzaExcepcionSiFallaElEnvio() {
         doThrow(new RuntimeException("SMTP no disponible")).when(mailSender).send(any(SimpleMailMessage.class));
 
-        emailService.enviarCorreoActualizacion("REQ-2026-0001", "detalle");
+        emailService.enviarCorreoActualizacion("example@gmail.com", "REQ-2026-0001", "detalle");
 
         verify(mailSender, times(1)).send(any(SimpleMailMessage.class));
     }

@@ -492,7 +492,7 @@ class ReclamoServiceTest {
         Reclamo resultado = reclamoService.actualizarEstadoReclamo(1, 2);
 
         assertThat(resultado.getEstado()).isSameAs(nuevoEstado);
-        verify(emailService, times(1)).enviarCorreoActualizacion(eq("REQ-2026-0002"), contains("En Proceso"));
+        verify(emailService, times(1)).enviarCorreoActualizacion("example@gmail.com",eq("REQ-2026-0002"), contains("En Proceso"));
     }
 
     @Test

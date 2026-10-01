@@ -248,7 +248,7 @@ public class ReclamoService {
         reclamo.setEstado(nuevoEstado);
 
         Reclamo guardado = reclamoRepository.save(reclamo);
-        emailService.enviarCorreoActualizacion(guardado.getCodigoSeguimiento(),
+        emailService.enviarCorreoActualizacion(guardado.getUsuario().getCorreo(), guardado.getCodigoSeguimiento(),
                 "El estado de tu caso ha cambiado a: " + nuevoEstado.getNombre());
         return guardado;
 

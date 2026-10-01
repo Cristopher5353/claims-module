@@ -101,7 +101,7 @@ class HistorialSeguimientoServiceTest {
         historialSeguimientoService.registrarHistorial(dto);
 
         ArgumentCaptor<String> detalleCaptor = ArgumentCaptor.forClass(String.class);
-        verify(emailService, times(1)).enviarCorreoActualizacion(eq("REQ-2026-0001"), detalleCaptor.capture());
+        verify(emailService, times(1)).enviarCorreoActualizacion("example@gmail.com",eq("REQ-2026-0001"), detalleCaptor.capture());
         assertThat(detalleCaptor.getValue()).contains("Se revisó su caso");
         assertThat(detalleCaptor.getValue()).doesNotContain("estado de tu reclamo ha sido actualizado");
     }
@@ -126,7 +126,7 @@ class HistorialSeguimientoServiceTest {
         verify(reclamoRepo, times(1)).save(reclamo);
 
         ArgumentCaptor<String> detalleCaptor = ArgumentCaptor.forClass(String.class);
-        verify(emailService, times(1)).enviarCorreoActualizacion(eq("REQ-2026-0001"), detalleCaptor.capture());
+        verify(emailService, times(1)).enviarCorreoActualizacion("example@gmail.com",eq("REQ-2026-0001"), detalleCaptor.capture());
         assertThat(detalleCaptor.getValue()).contains("estado de tu reclamo ha sido actualizado");
     }
 

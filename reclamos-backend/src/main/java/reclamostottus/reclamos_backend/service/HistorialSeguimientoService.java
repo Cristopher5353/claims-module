@@ -61,7 +61,7 @@ public class HistorialSeguimientoService {
                 detalleCorreo += "\n\nAdemás, el estado de tu reclamo ha sido actualizado.";
             }
 
-            emailService.enviarCorreoActualizacion(reclamo.getCodigoSeguimiento(), detalleCorreo);
+            emailService.enviarCorreoActualizacion(reclamo.getUsuario().getCorreo(), reclamo.getCodigoSeguimiento(), detalleCorreo);
         }
 
         return historialGuardado;
