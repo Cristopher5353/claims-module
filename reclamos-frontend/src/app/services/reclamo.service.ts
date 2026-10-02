@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReclamoService {
   // Ruta de tu Backend en Spring Boot
-  private apiUrl = 'http://localhost:8080/api/reclamos';
+  private apiUrl = `${environment.backendUrl}/api/reclamos`;
 
   // NUEVO: Variable para la ruta del historial
-  private historialUrl = 'http://localhost:8080/api/historial';
+  private historialUrl = `${environment.backendUrl}/api/historial`;
 
   // Objeto temporal para guardar los datos del Paso 1
   private datosCliente: any = {};

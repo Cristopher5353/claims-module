@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReclamoService } from '../../services/reclamo.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-consulta-invitado',
@@ -29,7 +30,7 @@ export class ConsultainvitadoComponent {
 
   mostrarModalImagen: boolean = false;
   imagenSeleccionada: string = '';
-  private backendUrl = 'http://localhost:8080';
+  private backendUrl = environment.backendUrl;
 
   constructor(
     private router: Router,

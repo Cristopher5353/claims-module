@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/api/**")
-                        .allowedOrigins("http://localhost:4200") // Permite el origen de Angular
+                        .allowedOrigins("http://localhost:4200", "https://reclamaciones-app-f5dhazhgg3c5aehh.westus3-01.azurewebsites.net") // Permite el origen de Angular
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);

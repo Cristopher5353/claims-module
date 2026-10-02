@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReclamoService } from '../../services/reclamo.service';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-detallecaso',
@@ -37,7 +39,7 @@ export class DetallecasoComponent implements OnInit {
   // =========================================================
   mostrarModalImagen: boolean = false;
   imagenSeleccionada: string = '';
-  private backendUrl = 'http://localhost:8080';
+  private backendUrl = environment.backendUrl;
 
   constructor(
     private route: ActivatedRoute,

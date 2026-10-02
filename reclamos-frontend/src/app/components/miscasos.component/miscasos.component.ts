@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ReclamoService } from '../../services/reclamo.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-miscasos',
@@ -22,7 +23,7 @@ export class MiscasosComponent implements OnInit {
   imagenSeleccionada: string = '';
 
   // NUEVO: Ruta base de tu backend donde se sirven las imágenes
-  private backendUrl = 'http://localhost:8080';
+  private backendUrl = environment.backendUrl;
 
   constructor(
     private router: Router,
