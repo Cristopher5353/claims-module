@@ -3,7 +3,7 @@ name: Build and deploy JAR app to Azure Web App - reclamaciones-app
 on:
   push:
     branches:
-      - main            # o master, según tu rama
+      - master
     paths:
       - 'reclamos-backend/**'
       - '.github/workflows/master_reclamaciones-app.yml'   # nombre real de tu archivo
